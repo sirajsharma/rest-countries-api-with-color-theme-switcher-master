@@ -1,0 +1,6 @@
+@use "./colors" as *;
+
+$box-shadow: 0px 2px 5px 1px
+  light-dark($dark-gray-transparent, $ultra-dark-blue);
+$element-background: light-dark($white, $dark-blue);
+$text-color: light-dark($very-dark-blue, $white);

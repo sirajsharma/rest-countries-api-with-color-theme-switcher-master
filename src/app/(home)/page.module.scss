@@ -1,0 +1,34 @@
+@use "/src/theme/mixins" as *;
+@use "/src/theme/breakpoints" as *;
+
+.home {
+  padding-inline: 1em;
+  padding-block: 2.5em;
+
+  @include media-query($desktop) {
+    padding-inline: 5.9em;
+    padding-top: 3.5em;
+  }
+
+  &__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5em;
+
+    @include media-query($desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__list {
+    padding-inline: 3.5em;
+
+    @include media-query($desktop) {
+      padding-inline: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 5.9em;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@use "/src/theme/variables" as *;
+@use "/src/theme/mixins" as *;
+@use "/src/theme/breakpoints" as *;
+
+.card {
+  text-decoration: none;
+  overflow: hidden;
+  overflow-x: auto;
+  border-radius: 0.5em;
+  display: block;
+  background: $element-background;
+  color: $text-color;
+  margin-top: 3.5em;
+  transition: opacity 0.2s;
+  box-shadow: $box-shadow;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &__image {
+    object-fit: cover;
+    min-width: -webkit-fill-available;
+    min-width: -moz-available;
+
+    @include media-query($desktop) {
+      max-height: 160px;
+      min-height: 160px;
+    }
+  }
+
+  &__content {
+    padding: 2.5em;
+
+    @include media-query($desktop) {
+      padding: 1.9em;
+    }
+  }
+
+  &__heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.3em;
+
+    @include media-query($desktop) {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+  }
+
+  &__detail {
+    font-size: 1.2rem;
+    margin-bottom: 0.3em;
+
+    @include media-query($desktop) {
+      margin-bottom: 0.2em;
+      font-size: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 2em;
+
+      @include media-query($desktop) {
+        margin-bottom: 1.5em;
+      }
+    }
+  }
+
+  &__stat {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,14 @@
+@use "../theme/resets" as *;
+@use "../theme/colors" as *;
+@use "../theme/typography" as *;
+
+:root {
+  color-scheme: light;
+  font-size: $homepage;
+}
+
+html,
+body {
+  color: light-dark($very-dark-blue, $white);
+  background-color: light-dark($very-light-gray, $very-dark-blue);
+}

@@ -1,0 +1,24 @@
+// Dark Mode
+$dark-blue: hsl(209, 23%, 22%); // (Dark Mode Elements)
+$very-dark-blue: hsl(207, 26%, 17%); // (Dark Mode Background)
+$ultra-dark-blue: hsl(210, 6.3%, 6.3%);
+
+// Light Mode
+$very-dark-blue: hsl(200, 15%, 8%); // (Light Mode Text)
+$dark-gray: hsl(0, 0%, 52%); // (Light Mode Input)
+$dark-gray-transparent: hsla(0, 0%, 52%, 20%);
+$very-light-gray: hsl(0, 0%, 98%); // (Light Mode Background)
+$white: hsl(0, 0%, 100%); // (Dark Mode Text & Light Mode Elements)
+
+// [data-theme="dark"] {
+//   --background-color: $very-dark-blue;
+//   --text-color: $white;
+//   --element-color: $dark-blue;
+//   --input-color: $white;
+// }
+
+// [data-theme="light"] {
+//   --background-color: $very-light-gray;
+//   --text-color: $very-dark-blue;
+//   --input-color: $dark-gray;
+// }

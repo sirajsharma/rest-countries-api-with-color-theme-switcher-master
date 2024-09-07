@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import { Nunito_Sans } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+import Header from "../components/header";
+
+import "./globals.scss";
+
+export const neuton = Nunito_Sans({
+  weight: ["300", "600", "800"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -25,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={neuton.className}>
+        <Header />
         {children}
       </body>
     </html>

@@ -1,0 +1,42 @@
+@use "/src/theme/colors" as *;
+@use "/src/theme/variables" as *;
+@use "/src/theme/mixins" as *;
+@use "/src/theme/breakpoints" as *;
+
+.search {
+  position: relative;
+
+  @include media-query($desktop) {
+    max-width: 480px;
+    min-width: 480px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    font-size: 1.8em;
+    transform: translateY(-50%);
+    left: 1.5em;
+    color: light-dark($dark-gray, $white);
+  }
+
+  &__input {
+    width: 100%;
+    padding-block: 1.5em;
+    padding-inline-start: 7em;
+    padding-inline-end: 1em;
+    border: none;
+    border-radius: 0.5em;
+    font-weight: 600;
+    color: light-dark($dark-gray, $white);
+    background-color: $element-background;
+    box-shadow: $box-shadow;
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &::placeholder {
+      color: light-dark($dark-gray, $white);
+      opacity: 1;
+    }
+  }
+}
