@@ -3,7 +3,7 @@ import { promises as fs } from "fs";
 export async function getCountryById(
   countryId: string
 ): Promise<Country | string> {
-  const file = await fs.readFile(`${process.cwd()}/data.json`);
+  const file = await fs.readFile(`public/data.json`);
   const data = JSON.parse(file as unknown as string) as Country[];
 
   const country = data.find(
