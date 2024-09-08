@@ -4,7 +4,7 @@ export async function getAllCountries(
   query?: string,
   region?: string
 ): Promise<Country[]> {
-  const file = await fs.readFile(`public/data.json`);
+  const file = await fs.readFile(`${process.cwd()}/src/app/data.json`);
   let data = JSON.parse(file as unknown as string) as Country[];
 
   if (query || region) {
