@@ -7,9 +7,14 @@ import { moonOutline, moonSharp } from "ionicons/icons";
 import styles from "./styles/header.module.scss";
 
 export default function Header() {
-  const [colorScheme, setColorScheme] = useState(
-    window.localStorage.getItem("colorScheme") || "light"
-  );
+  const [colorScheme, setColorScheme] = useState("light");
+
+  // Access localStorage only on the client side
+  useEffect(() => {
+    const storedColorScheme =
+      window.localStorage.getItem("colorScheme") || "light";
+    setColorScheme(storedColorScheme);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
