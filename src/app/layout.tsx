@@ -5,11 +5,11 @@ import Header from "../components/header";
 
 import "./globals.scss";
 
-export const neuton = Nunito_Sans({
+export const nunitoSans = Nunito_Sans({
   weight: ["300", "600", "800"],
   subsets: ["latin"],
   display: "swap",
-  adjustFontFallback: false,
+
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={neuton.className}>
+      <body className={nunitoSans.className}>
         <Header />
         {children}
       </body>
