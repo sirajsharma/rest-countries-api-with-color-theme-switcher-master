@@ -1,11 +1,21 @@
-import { getAllCountries } from "@/utils/get-all-countries";
+import { getAllCountries } from "@/lib/get-all-countries";
 
 import { Card, Dropdown, Search } from "./_components";
 
 import styles from "./page.module.scss";
 
-export default async function Home() {
-  const countries = await getAllCountries();
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    region?: string;
+  };
+}) {
+  const countries = await getAllCountries(
+    searchParams?.query,
+    searchParams?.region
+  );
 
   return (
     <main className={styles["home"]}>

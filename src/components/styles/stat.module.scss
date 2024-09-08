@@ -1,0 +1,24 @@
+@use "/src/theme/variables" as *;
+@use "/src/theme/mixins" as *;
+@use "/src/theme/breakpoints" as *;
+
+.stat {
+  font-size: inherit;
+  margin-bottom: 0.3em;
+
+  @include media-query($desktop) {
+    margin-bottom: 0.2em;
+  }
+
+  &:last-child {
+    margin-bottom: 2em;
+
+    @include media-query($desktop) {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+}

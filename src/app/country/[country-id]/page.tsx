@@ -1,4 +1,8 @@
-import { getCountryById } from "@/utils/get-country-by-id";
+import { getCountryById } from "@/lib/get-country-by-id";
+
+import { BackLink, Details, Flag } from "./_components";
+
+import styles from "./page.module.scss";
 
 export default async function Country({
   params,
@@ -15,5 +19,13 @@ export default async function Country({
     return <h1>{country}</h1>;
   }
 
-  return <h1>{country.name}</h1>;
+  return (
+    <main className={styles["country"]}>
+      <BackLink />
+      <article className={styles["country__info"]}>
+        <Flag flag={country.flag} name={country.name} />
+        <Details country={country} />
+      </article>
+    </main>
+  );
 }

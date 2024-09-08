@@ -14,6 +14,11 @@
   transition: opacity 0.2s;
   box-shadow: $box-shadow;
 
+  @include media-query($desktop) {
+    margin-top: 0;
+    margin-bottom: 5.9em;
+  }
+
   &:hover {
     opacity: 0.8;
   }
@@ -31,9 +36,11 @@
 
   &__content {
     padding: 2.5em;
+    font-size: 1.2rem;
 
     @include media-query($desktop) {
       padding: 1.9em;
+      font-size: 1rem;
     }
   }
 

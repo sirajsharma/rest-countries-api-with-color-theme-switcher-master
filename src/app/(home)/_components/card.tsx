@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Stat } from "@/components/stat";
+
 import styles from "./styles/card.module.scss";
 
 type CardProps = {
@@ -20,6 +22,21 @@ export function Card({
   population,
   region,
 }: CardProps) {
+  const stats = [
+    {
+      label: "Population",
+      value: new Intl.NumberFormat().format(population),
+    },
+    {
+      label: "Region",
+      value: region,
+    },
+    {
+      label: "Capital",
+      value: capital,
+    },
+  ];
+
   return (
     <Link
       href={`/country/${numericCode}`}
@@ -35,18 +52,9 @@ export function Card({
       />
       <section className={styles["card__content"]}>
         <h2 className={styles["card__heading"]}>{name}</h2>
-        <p className={styles["card__detail"]}>
-          <span className={styles["card__stat"]}>Population:&nbsp;</span>
-          {population}
-        </p>
-        <p className={styles["card__detail"]}>
-          <span className={styles["card__stat"]}>Region:&nbsp;</span>
-          {region}
-        </p>
-        <p className={styles["card__detail"]}>
-          <span className={styles["card__stat"]}>Capital:&nbsp;</span>
-          {capital}
-        </p>
+        {stats.map((stat) => (
+          <Stat key={stat.label} {...stat} />
+        ))}
       </section>
     </Link>
   );

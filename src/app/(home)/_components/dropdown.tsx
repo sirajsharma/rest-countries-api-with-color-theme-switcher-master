@@ -1,4 +1,6 @@
 "use client";
+
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { IonIcon } from "@ionic/react";
 import { chevronDownOutline, chevronUpOutline } from "ionicons/icons";
@@ -6,6 +8,7 @@ import { chevronDownOutline, chevronUpOutline } from "ionicons/icons";
 import styles from "./styles/dropdown.module.scss";
 
 const REGIONS = [
+  "All",
   "Africa",
   "Americas",
   "Antarctic Ocean",
@@ -17,6 +20,10 @@ const REGIONS = [
 ];
 
 export function Dropdown() {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLButtonElement>(null);
 
@@ -42,6 +49,18 @@ export function Dropdown() {
     setShowDropdown((prevState) => !prevState);
   };
 
+  const handleItemClick = (region: string) => () => {
+    const params = new URLSearchParams(searchParams);
+
+    if (region) {
+      region === "All" ? params.delete("region") : params.set("region", region);
+    } else {
+      params.delete("region");
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <section
       className={styles["dropdown"]}
@@ -56,7 +75,7 @@ export function Dropdown() {
         onClick={handleToggleDropdown}
         ref={dropdownRef}
       >
-        Fitler by Region
+        {searchParams.get("region")?.toString() ?? "Fitler by Region"}
         <IonIcon
           className={styles["dropdown__icon"]}
           icon={showDropdown ? chevronUpOutline : chevronDownOutline}
@@ -70,7 +89,11 @@ export function Dropdown() {
           aria-labelledby="dropdown-button"
         >
           {REGIONS.map((region) => (
-            <button className={styles["dropdown__item"]} key={region}>
+            <button
+              className={styles["dropdown__item"]}
+              key={region}
+              onClick={handleItemClick(region)}
+            >
               {region}
             </button>
           ))}

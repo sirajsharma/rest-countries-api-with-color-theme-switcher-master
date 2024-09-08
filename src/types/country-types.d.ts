@@ -40,7 +40,7 @@ type Country = {
   alpha3Code: string;
   altSpellings: string[];
   area: number;
-  borders: string[];
+  borders?: string[];
   callingCodes: string[];
   capital: string;
   cioc: string;

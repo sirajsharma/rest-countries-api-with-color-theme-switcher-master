@@ -24,6 +24,12 @@
     padding-block: 1.5em;
     width: 100%;
     box-shadow: $box-shadow;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
   }
 
   &__icon {

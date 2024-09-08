@@ -1,0 +1,13 @@
+@use "/src/theme/breakpoints" as *;
+@use "/src/theme/mixins" as *;
+
+.country {
+  padding-inline: 3.5em;
+
+  &__info {
+    @include media-query($desktop) {
+      display: flex;
+      gap: 14em;
+    }
+  }
+}

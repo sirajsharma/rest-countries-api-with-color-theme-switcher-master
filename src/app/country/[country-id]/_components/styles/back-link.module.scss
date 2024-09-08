@@ -1,0 +1,26 @@
+@use "/src/theme/variables" as *;
+@use "/src/theme/breakpoints" as *;
+@use "/src/theme/mixins" as *;
+
+.back {
+  margin-block: 2.9em;
+  display: flex;
+  margin-left: 0.3em;
+  align-items: center;
+  justify-content: center;
+  color: $text-color;
+  background-color: $element-background;
+  text-decoration: none;
+  font-size: 2rem;
+  padding-inline: 1.5em;
+  padding-block: 0.3em;
+  border-radius: 0.2em;
+  max-width: 200px;
+  gap: 0.3em;
+  box-shadow: $box-shadow;
+
+  @include media-query($desktop) {
+    max-width: 139px;
+    font-size: 1.2rem;
+  }
+}

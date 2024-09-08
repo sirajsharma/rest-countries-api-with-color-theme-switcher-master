@@ -1,0 +1,18 @@
+@use "/src/theme/variables" as *;
+@use "/src/theme/breakpoints" as *;
+@use "/src/theme/mixins" as *;
+
+.flag {
+  margin: 0;
+  padding: 0;
+
+  @include media-query($desktop) {
+    min-width: 566px;
+    min-height: 402px;
+  }
+
+  &__img {
+    object-fit: cover;
+    min-width: 100%;
+  }
+}
