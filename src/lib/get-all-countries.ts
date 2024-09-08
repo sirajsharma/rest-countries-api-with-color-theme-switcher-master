@@ -1,11 +1,10 @@
-import { promises as fs } from "fs";
+import { data as rawData } from "@/data";
 
 export async function getAllCountries(
   query?: string,
   region?: string
 ): Promise<Country[]> {
-  const file = await fs.readFile(`${process.cwd()}/data.json`);
-  let data = JSON.parse(file as unknown as string) as Country[];
+  let data = rawData as Country[];
 
   if (query || region) {
     data = data.filter((country) => {
