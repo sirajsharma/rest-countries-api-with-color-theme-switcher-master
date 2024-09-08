@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Nunito_Sans } from "next/font/google";
 
 import Header from "../components/header";
 
 import "./globals.scss";
-
-export const nunitoSans = Nunito_Sans({
-  weight: ["300", "600", "800"],
-  subsets: ["latin"],
-  display: "swap",
-
-});
 
 export const metadata: Metadata = {
   title: "Where in the world?",
@@ -24,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nunitoSans.className}>
+      <body>
         <Header />
         {children}
       </body>

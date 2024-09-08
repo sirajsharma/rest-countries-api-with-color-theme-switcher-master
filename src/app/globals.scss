@@ -2,6 +2,8 @@
 @use "../theme/colors" as *;
 @use "../theme/typography" as *;
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
 :root {
   color-scheme: light;
   font-size: $homepage;
@@ -11,4 +13,9 @@ html,
 body {
   color: light-dark($very-dark-blue, $white);
   background-color: light-dark($very-light-gray, $very-dark-blue);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100, "YTLC" 500;
 }
